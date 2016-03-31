@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace VideoPoker
 {
-    class Deck
+    public class Deck
     {
 
         #region Private Members
@@ -35,9 +35,9 @@ namespace VideoPoker
                     string cardname = suit + value.ToString() + ".gif";
                     Bitmap bmp = new Bitmap("images/" + cardname);
 
-                    Card card = new Card();
+                    Card card = new Card(_Form);
 
-                    card.pbCard.Image = bmp;
+                    
                     card.pbCard.Height = bmp.Height;
                     card.pbCard.Width = bmp.Width;
                     card.FrontImage = bmp;
@@ -46,7 +46,7 @@ namespace VideoPoker
 
                     bmp = new Bitmap("Images/b2fv.gif");
                     card.BackImage = bmp;
-
+                    card.pbCard.Image = bmp;
                     bmp = new Bitmap("Images/hold" + cardname);
                     card.HoldImage = bmp;
                     
@@ -62,7 +62,7 @@ namespace VideoPoker
                 for (int i = 0; i < _Cards.Count; i++)
                 {
                     int position = _rnd.Next(0, 52);
-                    Card temp = new Card();
+                    Card temp = new Card(_Form);
                     temp = _Cards[i];
                     _Cards[i] = _Cards[position];
                     _Cards[position] = temp;
@@ -84,6 +84,20 @@ namespace VideoPoker
             Card card = _Shoe.Dequeue();
             return card;
             
+        }
+        public void Show()
+        {
+            int x = 10;
+            int y = 200;
+            foreach (Card card in _Cards)
+            {
+                card.pbCard.Location = new Point(x, y);
+                card.Bouncable = true;
+                _Form.Controls.Add(card.pbCard);
+                x += 0;
+                y += -2;
+                
+            }
         }
         #endregion
 

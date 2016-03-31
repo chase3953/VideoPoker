@@ -13,6 +13,8 @@ namespace VideoPoker
     public partial class frmTable : Form
     {
         Random rnd = new Random();
+        Deck deck;
+        Hand hand;
 
         public frmTable()
         {
@@ -31,14 +33,25 @@ namespace VideoPoker
 
         private void mnuNewGame_Click(object sender, EventArgs e)
         {
-
+            hand = new Hand();
+            for (int i = 0; i < 5; i++)
+            {
+                hand.Deal = deck.Deal();
+            }
+            hand.Show();
         }
 
         private void frmTable_Load(object sender, EventArgs e)
         {
-            Deck deck = new Deck(this, rnd);
-            for (int i = 0; i<52;i++)
-                this.flowLayoutPanel1.Controls.Add(deck.Deal().pbCard);
+            deck = new Deck(this, rnd);
+            deck.Show();                      
+        }
+
+        private void mnuDraw_Click(object sender, EventArgs e)
+        {
+            hand.Draw(deck);
+            hand.Show();
+
         }
     }
 }
