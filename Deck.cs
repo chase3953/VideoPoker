@@ -79,6 +79,15 @@ namespace VideoPoker
         #endregion
 
         #region  Public Methods 
+        public void Dispose()
+        {
+            foreach (Card card in _Cards)
+            {
+                card.Dispose();
+                Application.DoEvents();
+            }
+            _Cards.Clear();
+        }
         public Card Deal()
         {
             Card card = _Shoe.Dequeue();
