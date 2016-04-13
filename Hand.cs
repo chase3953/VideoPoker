@@ -163,10 +163,6 @@ namespace VideoPoker
             {
                 result = true;
             }
-            if (_SCards[4].Value == _SCards[5].Value)
-            {
-                result = true;
-            }
             return result;
         }
         #endregion
@@ -255,6 +251,10 @@ namespace VideoPoker
                 result = "High Card";
             }
             return result;           
+        }
+        public void Add(Card card)
+        {
+            _SCards.Add(card);
         }
 
         #endregion

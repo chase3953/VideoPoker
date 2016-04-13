@@ -62,6 +62,7 @@ namespace VideoPoker
             }
             set
             {
+                _Suit = value;
             }
         }
         public uint Value
@@ -72,7 +73,7 @@ namespace VideoPoker
             }
             set
             {
-                _Value = Value;
+                _Value = value;
             }
         }
         public Image FrontImage
@@ -179,6 +180,9 @@ namespace VideoPoker
             //LOAD THE IMAGE OF 1 CARD
             _form = form;
             _Card = new PictureBox();                       
+        }
+        public Card()
+        {
         }
 
         
