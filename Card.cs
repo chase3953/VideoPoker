@@ -198,6 +198,7 @@ namespace VideoPoker
             {
                 if (disposing)
                 {
+                    this.Bouncable = false;
                     _form.Controls.Remove(_Card);
                 }
                 _FrontImage = null;

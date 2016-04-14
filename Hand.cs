@@ -75,6 +75,10 @@ namespace VideoPoker
             {
                 result = true;
             }
+            if (_SCards[1].Value == _SCards[2].Value && _SCards[2].Value == _SCards[3].Value && _SCards[3].Value == _SCards[4].Value)
+            {
+                result = true;
+            }
             return result;
         }
         public bool BobSaget()
@@ -113,15 +117,15 @@ namespace VideoPoker
         public bool ThreeofaKind()
         {
             bool result = false;
-            if (_SCards[0] == _SCards[1] && _SCards[1] == _SCards[2])
+            if (_SCards[0].Value == _SCards[1].Value && _SCards[1].Value == _SCards[2].Value)
             {
                 result = true;
             }
-            else if (_SCards[1] == _SCards[2] && _SCards[2] == _SCards[3])
+            else if (_SCards[1].Value == _SCards[2].Value && _SCards[2].Value == _SCards[3].Value)
             {
                 result = true;
             }
-            else if (_SCards[2] == _SCards[3] && _SCards[3] == _SCards[4])
+            else if (_SCards[2].Value == _SCards[3].Value && _SCards[3].Value == _SCards[4].Value)
             {
                 result = true;
             }
@@ -130,15 +134,15 @@ namespace VideoPoker
         public bool TwoPair()
         {
             bool result = false;
-            if (_SCards[0] == _SCards[1] && _SCards[2] == _SCards[3])
+            if (_SCards[0].Value == _SCards[1].Value && _SCards[2].Value == _SCards[3].Value)
             {
                 result = true;
             }
-            else if (_SCards[0] == _SCards[1] && _SCards[3] == _SCards[5])
+            else if (_SCards[0].Value == _SCards[1].Value && _SCards[3].Value == _SCards[4].Value)
             {
                 result = true;
             }
-            else if (_SCards[1] == _SCards[2] && _SCards[3] == _SCards[4])
+            else if (_SCards[1].Value == _SCards[2].Value && _SCards[3].Value == _SCards[4].Value)
             {
                 result = true;
             }
