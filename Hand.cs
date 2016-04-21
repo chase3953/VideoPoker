@@ -209,50 +209,60 @@ namespace VideoPoker
                 Application.DoEvents();
             }
         }
-        public string Evaluate()
+        public HandValue Evaluate()
         {
+            HandValue result = new HandValue();
             Sort();
 
-            string result = string.Empty;
             if (RoyalFlush() == true)
             {
-                result = "Royal Flush";
+                result.Multiplier = Values.RoyalFlush;
+                result.Description = "Royal Flush";
             }
             else if (StraightFlush() == true)
             {
-                result = "Straight Flush";
+                result.Multiplier = Values.StraightFlush;
+                result.Description = "Straight Flush";
             }
             else if (FourofaKind() == true)
             {
-                result = "Four of a kind";
+                result.Multiplier = Values.FourofaKind;
+                result.Description = "Four of a kind";
             }
             else if (BobSaget() == true)
             {
-                result = "Full House";
+                result.Multiplier = Values.FullHouse;
+                result.Description = "Full House";
             }
             else if (Flush() == true)
             {
-                result = "Flush";
+                result.Multiplier = Values.Flush;
+                result.Description = "Flush";
             }
             else if (Straight() == true)
             {
-                result = "Straight";
+                result.Multiplier = Values.Straight;
+                result.Description = "Straight";
             }
             else if (ThreeofaKind() == true)
             {
-                result = "Three of a kind";
+                result.Multiplier = Values.ThreeofaKind;
+                result.Description = "Three of a kind";
             }
             else if (TwoPair() == true)
             {
-                result = "Two Pair";
+                result.Multiplier = Values.TwoPair;
+                result.Description = "Two Pair";
             }
             else if (Pair() == true)
             {
-                result = "Pair";
+                result.Multiplier = Values.Pair;
+                result.Description = "Pair";
             }
             else
             {
-                result = "High Card";
+                result.Multiplier = Values.HighCard;
+                result.Description = "High Card";
             }
             return result;           
         }

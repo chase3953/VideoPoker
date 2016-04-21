@@ -46,6 +46,8 @@
             this.btn100 = new System.Windows.Forms.Button();
             this.lblBetAmount = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblWinnings = new System.Windows.Forms.Label();
+            this.Winnings = new System.Windows.Forms.Label();
             this.mnuPoker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,40 +79,40 @@
             // mnuNewGame
             // 
             this.mnuNewGame.Name = "mnuNewGame";
-            this.mnuNewGame.Size = new System.Drawing.Size(152, 22);
+            this.mnuNewGame.Size = new System.Drawing.Size(146, 22);
             this.mnuNewGame.Text = "New Game";
             this.mnuNewGame.Click += new System.EventHandler(this.mnuNewGame_Click);
             // 
             // mnuDraw
             // 
             this.mnuDraw.Name = "mnuDraw";
-            this.mnuDraw.Size = new System.Drawing.Size(152, 22);
+            this.mnuDraw.Size = new System.Drawing.Size(146, 22);
             this.mnuDraw.Text = "Draw";
             this.mnuDraw.Click += new System.EventHandler(this.mnuDraw_Click);
             // 
             // mnuPurchase
             // 
             this.mnuPurchase.Name = "mnuPurchase";
-            this.mnuPurchase.Size = new System.Drawing.Size(152, 22);
+            this.mnuPurchase.Size = new System.Drawing.Size(146, 22);
             this.mnuPurchase.Text = "Purchase 1.00";
             this.mnuPurchase.Click += new System.EventHandler(this.mnuPurchase_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(152, 22);
+            this.mnuExit.Size = new System.Drawing.Size(146, 22);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // lblHand
             // 
             this.lblHand.BackColor = System.Drawing.Color.Transparent;
-            this.lblHand.Location = new System.Drawing.Point(675, 122);
+            this.lblHand.Location = new System.Drawing.Point(351, 68);
             this.lblHand.Name = "lblHand";
             this.lblHand.Size = new System.Drawing.Size(116, 30);
             this.lblHand.TabIndex = 1;
@@ -158,6 +160,7 @@
             this.btn25.Name = "btn25";
             this.btn25.Size = new System.Drawing.Size(75, 23);
             this.btn25.TabIndex = 5;
+            this.btn25.Tag = ".25";
             this.btn25.Text = "¢25";
             this.btn25.UseVisualStyleBackColor = true;
             this.btn25.Click += new System.EventHandler(this.btnBet_Click);
@@ -168,6 +171,7 @@
             this.btn50.Name = "btn50";
             this.btn50.Size = new System.Drawing.Size(75, 23);
             this.btn50.TabIndex = 6;
+            this.btn50.Tag = ".50";
             this.btn50.Text = "¢50";
             this.btn50.UseVisualStyleBackColor = true;
             this.btn50.Click += new System.EventHandler(this.btnBet_Click);
@@ -178,6 +182,7 @@
             this.btn75.Name = "btn75";
             this.btn75.Size = new System.Drawing.Size(75, 23);
             this.btn75.TabIndex = 7;
+            this.btn75.Tag = ".75";
             this.btn75.Text = "¢75";
             this.btn75.UseVisualStyleBackColor = true;
             this.btn75.Click += new System.EventHandler(this.btnBet_Click);
@@ -188,6 +193,7 @@
             this.btn100.Name = "btn100";
             this.btn100.Size = new System.Drawing.Size(75, 23);
             this.btn100.TabIndex = 8;
+            this.btn100.Tag = "1";
             this.btn100.Text = "$1.00";
             this.btn100.UseVisualStyleBackColor = true;
             this.btn100.Click += new System.EventHandler(this.btnBet_Click);
@@ -213,6 +219,28 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // lblWinnings
+            // 
+            this.lblWinnings.AutoSize = true;
+            this.lblWinnings.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinnings.ForeColor = System.Drawing.Color.Red;
+            this.lblWinnings.Location = new System.Drawing.Point(639, 84);
+            this.lblWinnings.Name = "lblWinnings";
+            this.lblWinnings.Size = new System.Drawing.Size(0, 13);
+            this.lblWinnings.TabIndex = 11;
+            // 
+            // Winnings
+            // 
+            this.Winnings.AutoSize = true;
+            this.Winnings.BackColor = System.Drawing.Color.Transparent;
+            this.Winnings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Winnings.ForeColor = System.Drawing.Color.Red;
+            this.Winnings.Location = new System.Drawing.Point(642, 68);
+            this.Winnings.Name = "Winnings";
+            this.Winnings.Size = new System.Drawing.Size(59, 13);
+            this.Winnings.TabIndex = 12;
+            this.Winnings.Text = "Winnings";
+            // 
             // frmTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +249,9 @@
             this.BackgroundImage = global::VideoPoker.Properties.Resources.blackjack22;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(803, 468);
+            this.ControlBox = false;
+            this.Controls.Add(this.Winnings);
+            this.Controls.Add(this.lblWinnings);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblBetAmount);
             this.Controls.Add(this.btn100);
@@ -235,6 +266,7 @@
             this.MainMenuStrip = this.mnuPoker;
             this.Name = "frmTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmTable_Load);
             this.mnuPoker.ResumeLayout(false);
             this.mnuPoker.PerformLayout();
@@ -263,6 +295,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPurchase;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblWinnings;
+        private System.Windows.Forms.Label Winnings;
     }
 }
 
